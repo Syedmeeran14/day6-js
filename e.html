@@ -12,7 +12,7 @@
         request.send();
         request.onload=function(){
         var data=JSON.parse(request.response);
-   //d     
+   //e     
    var result5 = data.filter((element) => {
      for(let key in element.currencies){
         if(element.currencies[key].code === "USD"){
