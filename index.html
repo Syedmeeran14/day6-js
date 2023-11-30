@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          var request = new XMLHttpRequest();
+        request.open('GET','https://restcountries.com/v3.1/all');
+        request.send();
+        
+        request.onload = function(){
+        var data = JSON.parse(request.response)
+        console.log(data);
+            
+            // //a
+            // let result1 = data.filter(item => item.region=="Asia");
+            // console.log(result1);
+
+            // //b
+            // let result2 = data.filter(item => item.population <= 200000);
+            // console.log(result2);
+
+        //     //c
+        //     let result3 =data.forEach((item) =>{
+        //     console.log(item.capital);
+        //     console.log(item.name);
+        //     console.log(item.flag);
+        // });
+
+        //    let result4 = data.reduce((acc,cur) => acc + cur.population,0);
+        //    console.log(result4 +" is the total population of all the countries");
+
+           //e
+        //    for(var key of data){
+        //    if(key.currencies[name] == "United States dollar"){
+        //     console.log("hi")
+        // //    }}
+        //    let dup = data.filter((item,key) => item.currencies[key.name]== 'United States dollar');
+        //    console.log(dup);
+
+        //    let dup2 = dup1.map(item => item.name)
+        //    console.log(dup2);
+
+        var total = data.reduce((acc,curr) =>{
+        return acc+curr.population;
+    } ,0);
+
+    console.log(total);
+ 
+        }
+    </script>
+</body>
+</html>
